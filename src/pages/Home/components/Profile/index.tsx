@@ -3,30 +3,57 @@ import { CustomLink } from "../../../../utilities/CustomLink";
 import { ProfileBanner, ProfileContainer } from "./style";
 import banner from '../../../../assets/banner.svg'
 
-export function Profile() {
+interface ProfileProps {
+  name: string,
+  login: string,
+  bio: string,
+  followers: string,
+  avatar_url: string
+  html_url: string
+}
+
+export function Profile({name, avatar_url, bio, followers, login, html_url}: ProfileProps) {
   return (
     <ProfileContainer>
       <img src={banner} alt="" />
       <ProfileBanner>
-        <img className="avatar" src='https://github.com/pedrohenrikle.png' alt="" />
+        <img className="avatar" src={avatar_url} alt="" />
         <section className="content">
         <div className="container">
           <div>
-            <h2>Pedro Herique</h2>
+            <h2>{name}</h2>
             <CustomLink 
-              href='https://github.com/pedrohenrikle' 
+              href={html_url} 
               target='_blank' >
                 GITHUB 
                 <ArrowSquareOut size={12} weight={"bold"}/>
             </CustomLink>
           </div>
-          <p>A young web developer. 19 years old. Mechanic Associate Degree ⚙️</p>
+          <p>{bio}</p>
         </div>
 
           <div className='infos'>
-            <section><GithubLogo size={18} color={'#3A536B'} weight={'bold'}/> <span>pedrohenrikle</span></section>
-            <section><Buildings size={18} color={'#3A536B'} weight={'bold'}/> <span>Rocketseat</span></section>
-            <section><Users size={18} color={'#3A536B'} weight={'bold'}/> <span>32</span> seguidores</section>
+            <section>
+              <GithubLogo 
+                size={18} 
+                color={'#3A536B'} 
+                weight={'bold'}/> 
+              <span>{login}</span>
+              </section>
+            <section>
+              <Buildings 
+                size={18} 
+                color={'#3A536B'} 
+                weight={'bold'}/> 
+              <span>Rocketseat</span>
+              </section>
+            <section>
+              <Users 
+                size={18} 
+                color={'#3A536B'} 
+                weight={'bold'}/> 
+              <span>{followers}</span> seguidores
+              </section>
           </div>
         </section>
       </ProfileBanner>

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { PostContainer } from "./style";
 
+
+
 export function Post() {
   return (
     <Link to={''} style={{textDecoration: 'none'}}>
