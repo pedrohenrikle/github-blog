@@ -17,6 +17,7 @@ export const PostContainer = styled.article`
     overflow: hidden;
     padding-bottom: 2rem; /* ou o valor que desejar */
 
+
     p {
       color: ${props => props.theme['base-text']};
     }

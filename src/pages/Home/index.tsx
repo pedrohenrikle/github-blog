@@ -2,31 +2,16 @@ import { HomeContainer} from "./style";
 import { Profile } from "./components/Profile";
 import { SearchBarComponent } from "./components/SearchBar";
 import { Post } from "./components/Post";
-import { userAPI } from "../../lib/axios";
-import { useEffect, useState } from "react";
+import { useContext} from "react";
+import { IssuesContext } from "../../context/IssuesContext";
 
 
-interface ProfileProps {
-  name: string
-  login: string
-  bio: string
-  followers: string
-  avatar_url: string
-  html_url: string
-}
+
 
 export function Home() {
-  const [userData, setUserData] = useState<ProfileProps[]>([]);
+  const {userData, issues} = useContext(IssuesContext)
 
-
-  useEffect(() => {  
-    userAPI.get('pedrohenrikle')
-      .then(response => {
-        const data = response.data;
-        setUserData([data]);
-      })
-  }, []);
-
+  console.log(issues)
   return (
     <HomeContainer>
       {userData.length > 0 && (
@@ -41,11 +26,21 @@ export function Home() {
       )}
       <SearchBarComponent/>
       <div className="posts">
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+          {issues.length === 0 ? (
+            <p>Nenhum resultado encontrado</p>
+          ) : (
+            issues.map((issue) => {
+              return (
+                <Post
+                  key={issue.id}
+                  uploadedAt={issue.updated_at}
+                  title={issue.title}
+                  content={issue.body}
+                />
+              )})
+          )}
       </div>
+
     </HomeContainer>
   )
 }
