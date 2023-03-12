@@ -5,6 +5,7 @@ import { Post } from "./components/Post";
 import { userAPI } from "../../lib/axios";
 import { useEffect, useState } from "react";
 
+
 interface ProfileProps {
   name: string
   login: string
@@ -16,6 +17,7 @@ interface ProfileProps {
 
 export function Home() {
   const [userData, setUserData] = useState<ProfileProps[]>([]);
+
 
   useEffect(() => {  
     userAPI.get('pedrohenrikle')
@@ -37,7 +39,7 @@ export function Home() {
           html_url={userData[0].html_url}
         />
       )}
-      <SearchBarComponent />
+      <SearchBarComponent/>
       <div className="posts">
         <Post />
         <Post />
