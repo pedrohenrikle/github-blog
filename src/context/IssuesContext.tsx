@@ -16,6 +16,7 @@ interface IssueProps {
   body: string
   id: number
   updated_at: string
+  number: number
 }
 
 interface IssuesContextType {

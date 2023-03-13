@@ -12,7 +12,7 @@ interface IssueProps  {
 
 export function Post({title, content, uploadedAt}: IssueProps ) {
   return (
-    <Link to={''} style={{textDecoration: 'none', color: 'inherit'}}>
+    
       <PostContainer>
         <div className="headerPost">
           <h2>{title}</h2>
@@ -24,6 +24,6 @@ export function Post({title, content, uploadedAt}: IssueProps ) {
           </ReactMarkdown>
         </div>
       </PostContainer>
-    </Link>
+
   )
 }

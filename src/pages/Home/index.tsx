@@ -4,6 +4,7 @@ import { SearchBarComponent } from "./components/SearchBar";
 import { Post } from "./components/Post";
 import { useContext} from "react";
 import { IssuesContext } from "../../context/IssuesContext";
+import { Link } from "react-router-dom";
 
 
 
@@ -31,12 +32,14 @@ export function Home() {
           ) : (
             issues.map((issue) => {
               return (
-                <Post
-                  key={issue.id}
-                  uploadedAt={issue.updated_at}
-                  title={issue.title}
-                  content={issue.body}
-                />
+                <Link to={`/issues/${issue.number}`} style={{textDecoration: 'none', color: 'inherit'}}>
+                  <Post
+                    key={issue.id}
+                    uploadedAt={issue.updated_at}
+                    title={issue.title}
+                    content={issue.body}
+                  />
+                </Link>
               )})
           )}
       </div>
