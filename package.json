@@ -17,7 +17,9 @@
     "react-hook-form": "^7.43.5",
     "react-markdown": "^8.0.5",
     "react-router-dom": "^6.9.0",
+    "rehype-raw": "^6.1.1",
     "remark-gfm": "^3.0.1",
+    "remark-html": "^15.0.2",
     "styled-components": "^5.3.8",
     "zod": "^3.21.4"
   },
