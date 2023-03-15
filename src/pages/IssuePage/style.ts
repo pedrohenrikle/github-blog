@@ -61,4 +61,22 @@ export const IssueContent = styled.div`
   display: flex;
   flex-direction: column;
   text-align: justify;
+
+  .react-markdown {
+    white-space: "pre-wrap";
+    line-height: 1.6;
+    hyphens: "auto";
+
+    a {
+      color: ${props => props.theme['base-subtitle']};
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover {
+        color: ${props => props.theme['base-span']};
+        transition: color 0.3s;
+        
+      }
+    }
+  }
 `

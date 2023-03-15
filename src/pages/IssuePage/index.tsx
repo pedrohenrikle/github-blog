@@ -87,7 +87,9 @@ export function IssueDetails() {
       </IssueHeader>
 
       <IssueContent style={{ whiteSpace: "pre-wrap" }}>
-        <ReactMarkdown remarkPlugins={[remarkGfm]} children={issue.body}/>
+        <ReactMarkdown className="react-markdown" remarkPlugins={[remarkGfm]}>
+          {issue.body}
+        </ReactMarkdown>
       </IssueContent>
 
     </IssuePageContainer>
