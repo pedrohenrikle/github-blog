@@ -5,5 +5,5 @@ export const userAPI = axios.create({
 })
 
 export const searchAPI = axios.create({
-  baseURL: 'https://api.github.com/search/issues'
+  baseURL: 'https://api.github.com/search/issues',
 })

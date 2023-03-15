@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const ProfileContainer = styled.header`
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
 `
@@ -9,7 +9,7 @@ export const ProfileContainer = styled.header`
 export const ProfileBanner = styled.div`
   width: 54rem;
   padding: 2rem;
-  background: ${props => props.theme['base-profile']};
+  background: ${(props) => props.theme['base-profile']};
 
   display: flex;
   border-radius: 10px;
@@ -29,30 +29,29 @@ export const ProfileBanner = styled.div`
     width: 100%;
     justify-content: space-between;
 
-    .container{
+    .container {
       div {
-      display: flex;
-      justify-content: space-between;
+        display: flex;
+        justify-content: space-between;
 
-      h2 {
-        font-weight: bold;
-        color: ${props => props.theme['base-title']};
-        margin-bottom: 0.5rem;
+        h2 {
+          font-weight: bold;
+          color: ${(props) => props.theme['base-title']};
+          margin-bottom: 0.5rem;
+        }
       }
-
     }
-  }
 
-  .infos {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-
-    section {
+    .infos {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 1.5rem;
+
+      section {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
     }
   }
-}
 `

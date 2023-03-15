@@ -1,16 +1,13 @@
-import { HomeContainer} from "./style";
-import { Profile } from "./components/Profile";
-import { SearchBarComponent } from "./components/SearchBar";
-import { Post } from "./components/Post";
-import { useContext} from "react";
-import { IssuesContext } from "../../context/IssuesContext";
-import { Link } from "react-router-dom";
-
-
-
+import { HomeContainer } from './style'
+import { Profile } from './components/Profile'
+import { SearchBarComponent } from './components/SearchBar'
+import { Post } from './components/Post'
+import { useContext } from 'react'
+import { IssuesContext } from '../../context/IssuesContext'
+import { Link } from 'react-router-dom'
 
 export function Home() {
-  const {userData, issues} = useContext(IssuesContext)
+  const { userData, issues } = useContext(IssuesContext)
 
   console.log(issues)
   return (
@@ -25,25 +22,28 @@ export function Home() {
           html_url={userData[0].html_url}
         />
       )}
-      <SearchBarComponent/>
+      <SearchBarComponent />
       <div className="posts">
-          {issues.length === 0 ? (
-            <p>Nenhum resultado encontrado</p>
-          ) : (
-            issues.map((issue) => {
-              return (
-                <Link to={`/issues/${issue.number}`} style={{textDecoration: 'none', color: 'inherit'}}>
-                  <Post
-                    key={issue.id}
-                    uploadedAt={issue.updated_at}
-                    title={issue.title}
-                    content={issue.body}
-                  />
-                </Link>
-              )})
-          )}
+        {issues.length === 0 ? (
+          <p>Nenhum resultado encontrado</p>
+        ) : (
+          issues.map((issue) => {
+            return (
+              <Link
+                key={issue.id}
+                to={`/issues/${issue.number}`}
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                <Post
+                  uploadedAt={issue.updated_at}
+                  title={issue.title}
+                  content={issue.body}
+                />
+              </Link>
+            )
+          })
+        )}
       </div>
-
     </HomeContainer>
   )
 }

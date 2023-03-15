@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const CustomLink = styled.a`
-  color: ${props => props.theme['blue']};
+  color: ${(props) => props.theme.blue};
   font-size: 0.75rem;
   font-weight: bold;
   display: flex;
@@ -12,9 +12,9 @@ export const CustomLink = styled.a`
   margin-top: 2px solid transparent;
   margin-bottom: 2px solid transparent;
 
-
-  &:hover, &:focus, &:active {
+  &:hover,
+  &:focus,
+  &:active {
     margin: 1px solid #fff;
   }
-
 `

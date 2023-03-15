@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const IssuePageContainer = styled.div`
   max-width: 1440px;
@@ -12,7 +12,7 @@ export const IssuePageContainer = styled.div`
 export const IssueHeader = styled.header`
   width: 54rem;
   padding: 2rem;
-  background: ${props => props.theme['base-profile']};
+  background: ${(props) => props.theme['base-profile']};
 
   display: flex;
   flex-direction: column;
@@ -29,14 +29,14 @@ export const IssueHeader = styled.header`
   }
 
   section {
-    
     .name {
       h2 {
-        color: ${props => props.theme['base-title']};
+        color: ${(props) => props.theme['base-title']};
         width: 100%;
         word-wrap: break-word;
         line-height: 160%;
-    } }
+      }
+    }
 
     .infos {
       display: flex;
@@ -63,19 +63,18 @@ export const IssueContent = styled.div`
   text-align: justify;
 
   .react-markdown {
-    white-space: "pre-wrap";
+    white-space: 'pre-wrap';
     line-height: 1.6;
-    hyphens: "auto";
+    hyphens: 'auto';
 
     a {
-      color: ${props => props.theme['base-subtitle']};
+      color: ${(props) => props.theme['base-subtitle']};
       text-decoration: none;
       font-weight: bold;
 
       &:hover {
-        color: ${props => props.theme['base-span']};
+        color: ${(props) => props.theme['base-span']};
         transition: color 0.3s;
-        
       }
     }
   }

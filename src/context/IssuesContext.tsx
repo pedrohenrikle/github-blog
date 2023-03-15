@@ -1,6 +1,12 @@
-import axios from "axios";
-import { createContext, ReactNode, useCallback, useEffect, useState } from "react";
-import { userAPI } from "../lib/axios";
+import axios from 'axios'
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react'
+import { userAPI } from '../lib/axios'
 
 interface ProfileProps {
   name: string
@@ -26,32 +32,31 @@ interface IssuesContextType {
   fetchIssues: (query?: string) => {}
 }
 
-interface IssuesProviderProps{
+interface IssuesProviderProps {
   children: ReactNode
 }
 
 export const IssuesContext = createContext({} as IssuesContextType)
 
-export function IssuesProvider({children}: IssuesProviderProps) {
-  const [userData, setUserData] = useState<ProfileProps[]>([]);
+export function IssuesProvider({ children }: IssuesProviderProps) {
+  const [userData, setUserData] = useState<ProfileProps[]>([])
   const [issues, setIssues] = useState<IssueProps[]>([])
 
-  const fetchProfile = useCallback( async () => {
-    userAPI.get('pedrohenrikle')
-      .then(response => {
-        const data = response.data;
-        setUserData([data]);
-      })
+  const fetchProfile = useCallback(async () => {
+    userAPI.get('pedrohenrikle').then((response) => {
+      const data = response.data
+      setUserData([data])
+    })
   }, [])
 
-  const fetchIssues = useCallback( async (query?: string) => {
-    axios.get(`https://api.github.com/search/issues`, {
-      params: { q: `repo:pedrohenrikle/github-blog ${query}` },
-    })
-    .then(response => {
-        const data = response.data;
-        setIssues(data.items);
-
+  const fetchIssues = useCallback(async (query?: string) => {
+    axios
+      .get(`https://api.github.com/search/issues`, {
+        params: { q: `repo:pedrohenrikle/github-blog ${query}` },
+      })
+      .then((response) => {
+        const data = response.data
+        setIssues(data.items)
       })
   }, [])
 
@@ -62,12 +67,9 @@ export function IssuesProvider({children}: IssuesProviderProps) {
 
   return (
     <IssuesContext.Provider
-      value={
-        {userData, fetchProfile, issues, fetchIssues}
-      }
+      value={{ userData, fetchProfile, issues, fetchIssues }}
     >
       {children}
     </IssuesContext.Provider>
   )
-
 }
